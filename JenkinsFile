@@ -65,14 +65,15 @@ pipeline {
         stage('Plan') 
          {
             steps {
-               /*
+               
                  sh 'pwd;cd terraform/ ; terraform init'
                  sh "pwd;cd terraform/ ; terraform plan -out tfplan"
                  sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
-               */
+               /*
                  sh 'pwd; ll ; terraform init'
                  sh "pwd; ll ; terraform plan -out tfplan"
-                 sh 'pwd; ll ; terraform show -no-color tfplan > tfplan.txt'
+                 sh 'pwd; ll ; terraform show -no-color tfplan > tfplan.txt' 
+               */
                  }
         }
         stage('Approval')
