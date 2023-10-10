@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     // Use the SSH key credential with the specified credentialsId
-                    withCredentials([usernamePassword(credentialsId: 'git-key', usernameVariable: 'gituser1305', passwordVariable: 'Yuvaan@1976')]) {
+                    withCredentials([usernamePassword(credentialsId: 'github-pat', usernameVariable: 'gituser1305', passwordVariable: 'Yuvaan@1976')]) {
                         dir("terraform") {
                             sh 'git clone https://github.com/gituser1305/terra-vpc.git'
                         }
