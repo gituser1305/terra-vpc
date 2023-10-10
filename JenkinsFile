@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
           // Set up Git credentials and configure Git tool
-                    withCredentials([usernamePassword(credentialsId: 'git-private-key', usernameVariable: 'gituser1305', passwordVariable: 'Yuvaan@1976')]) 
+                    withCredentials([usernamePassword(credentialsId: 'git-private-key', usernameVariable: 'jenkins', passwordVariable: '')]) 
                      {
                      dir("terraform")
                        {
