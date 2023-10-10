@@ -10,7 +10,7 @@ pipeline {
     agent any
     stages 
      {
-        stage('Checkout') {
+       /* stage('Checkout') {
             steps {
                 script{
           // Set up Git credentials and configure Git tool
@@ -24,7 +24,21 @@ pipeline {
                 }
                
             }
+        } */
+
+        stage('Checkout') {
+            steps {
+                script {
+                    // Use the SSH key credential with the specified credentialsId
+                    withCredentials([sshUserPrivateKey(credentialsId: 'git-key', keyFileVariable: '/etc/ssh/ssh_host_rsa_key', passphraseVariable: '', usernameVariable: '')]) {
+                        dir("terraform") {
+                            sh 'git clone git@github.com/gituser1305/terra-vpc.git'
+                        }
+                    }
+                }
+            }
         }
+
 
         //stage('Terraform Init') {
             //steps {
